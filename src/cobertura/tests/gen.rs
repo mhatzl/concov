@@ -1,3 +1,5 @@
+use crate::cfg::ConversionConfig;
+
 #[test]
 fn gen_v4_read() {
     let content = include_str!("gen.xml");
@@ -36,4 +38,20 @@ fn roundtrip() {
         stripped_cobertura, stripped_content,
         "Roundtrip cobertura doesn't macht original."
     );
+}
+
+#[test]
+fn xml_to_json() {
+    let content = include_str!("gen.xml");
+
+    let json_content = crate::convert::convert(&ConversionConfig {
+        in_fmt: crate::format::CoverageFormat::CoberturaV4,
+        in_content: content.to_string(),
+        in_data_fmt: crate::cfg::DataFormat::Xml,
+        out_fmt: crate::format::CoverageFormat::CoberturaV4,
+        out_data_fmt: crate::cfg::DataFormat::Json,
+    })
+    .unwrap();
+
+    insta::assert_snapshot!(json_content);
 }
