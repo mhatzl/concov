@@ -1,5 +1,8 @@
 [package]
 name = "covcon"
+description = "Crate to convert between code coverage formats."
+repository = "https://github.com/mhatzl/covcon"
+license = "MIT"
 version = "0.1.0"
 edition = "2021"
 
