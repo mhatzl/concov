@@ -29,6 +29,14 @@ pub struct Coverage {
     pub packages: Packages,
 }
 
+impl TryFrom<&str> for Coverage {
+    type Error = Box<dyn core::error::Error>;
+
+    fn try_from(value: &str) -> Result<Self, Self::Error> {
+        Ok(quick_xml::de::from_str::<Coverage>(value)?)
+    }
+}
+
 impl std::fmt::Display for Coverage {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         writeln!(f, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>")?;
