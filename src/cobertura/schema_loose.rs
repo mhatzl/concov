@@ -7,19 +7,19 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 #[serde(rename = "coverage")]
 pub struct Coverage {
-    #[serde(rename = "@line-rate")]
+    #[serde(rename = "@line-rate", skip_serializing_if = "Option::is_none")]
     pub line_rate: Option<f64>,
-    #[serde(rename = "@branch-rate")]
+    #[serde(rename = "@branch-rate", skip_serializing_if = "Option::is_none")]
     pub branch_rate: Option<f64>,
-    #[serde(rename = "@lines-covered")]
+    #[serde(rename = "@lines-covered", skip_serializing_if = "Option::is_none")]
     pub lines_covered: Option<u64>,
-    #[serde(rename = "@lines-valid")]
+    #[serde(rename = "@lines-valid", skip_serializing_if = "Option::is_none")]
     pub lines_valid: Option<u64>,
-    #[serde(rename = "@branches-covered")]
+    #[serde(rename = "@branches-covered", skip_serializing_if = "Option::is_none")]
     pub branches_covered: Option<u64>,
-    #[serde(rename = "@branches-valid")]
+    #[serde(rename = "@branches-valid", skip_serializing_if = "Option::is_none")]
     pub branches_valid: Option<u64>,
-    #[serde(rename = "@complexity")]
+    #[serde(rename = "@complexity", skip_serializing_if = "Option::is_none")]
     pub complexity: Option<f64>,
     #[serde(rename = "@version")]
     pub version: String,
@@ -79,11 +79,11 @@ impl std::ops::DerefMut for Packages {
 pub struct Package {
     #[serde(rename = "@name")]
     pub name: String,
-    #[serde(rename = "@line-rate")]
+    #[serde(rename = "@line-rate", skip_serializing_if = "Option::is_none")]
     pub line_rate: Option<f64>,
-    #[serde(rename = "@branch-rate")]
+    #[serde(rename = "@branch-rate", skip_serializing_if = "Option::is_none")]
     pub branch_rate: Option<f64>,
-    #[serde(rename = "@complexity")]
+    #[serde(rename = "@complexity", skip_serializing_if = "Option::is_none")]
     pub complexity: Option<f64>,
     pub classes: Classes,
 }
@@ -113,11 +113,11 @@ pub struct Class {
     pub name: String,
     #[serde(rename = "@filename")]
     pub filename: PathBuf,
-    #[serde(rename = "@line-rate")]
+    #[serde(rename = "@line-rate", skip_serializing_if = "Option::is_none")]
     pub line_rate: Option<f64>,
-    #[serde(rename = "@branch-rate")]
+    #[serde(rename = "@branch-rate", skip_serializing_if = "Option::is_none")]
     pub branch_rate: Option<f64>,
-    #[serde(rename = "@complexity")]
+    #[serde(rename = "@complexity", skip_serializing_if = "Option::is_none")]
     pub complexity: Option<f64>,
     pub methods: Methods,
     pub lines: Lines,
@@ -148,11 +148,11 @@ pub struct Method {
     pub name: String,
     #[serde(rename = "@signature")]
     pub signature: String,
-    #[serde(rename = "@line-rate")]
+    #[serde(rename = "@line-rate", skip_serializing_if = "Option::is_none")]
     pub line_rate: Option<f64>,
-    #[serde(rename = "@branch-rate")]
+    #[serde(rename = "@branch-rate", skip_serializing_if = "Option::is_none")]
     pub branch_rate: Option<f64>,
-    #[serde(rename = "@complexity")]
+    #[serde(rename = "@complexity", skip_serializing_if = "Option::is_none")]
     pub complexity: Option<f64>,
     pub lines: Lines,
 }
@@ -180,7 +180,7 @@ impl std::ops::DerefMut for Lines {
 pub struct Line {
     #[serde(rename = "@number")]
     pub number: u64,
-    #[serde(rename = "@hits")]
+    #[serde(rename = "@hits", skip_serializing_if = "Option::is_none")]
     pub hits: Option<u64>,
     #[serde(rename = "@branch", default)]
     pub branch: bool,
