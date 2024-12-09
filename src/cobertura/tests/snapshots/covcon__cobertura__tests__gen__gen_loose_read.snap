@@ -1,0 +1,284 @@
+---
+source: src/cobertura/tests/gen.rs
+expression: cobertura
+---
+coverage(
+  r#@line-rate: Some(0.85),
+  r#@branch-rate: Some(0.75),
+  r#@lines-covered: Some(85),
+  r#@lines-valid: Some(100),
+  r#@branches-covered: Some(15),
+  r#@branches-valid: Some(20),
+  r#@complexity: Some(1.5),
+  r#@version: "2.1.1",
+  r#@timestamp: "1702139945",
+  sources: Some(Sources(
+    source: [
+      "/path/to/source1",
+      "/path/to/source2",
+    ],
+  )),
+  packages: Packages(
+    package: [
+      Package(
+        r#@name: "com.example.mypackage1",
+        r#@line-rate: Some(0.9),
+        r#@branch-rate: Some(0.8),
+        r#@complexity: Some(1.2),
+        classes: Classes(
+          class: [
+            Class(
+              r#@name: "MyClass1",
+              r#@filename: "com/example/mypackage1/MyClass1.java",
+              r#@line-rate: Some(0.9),
+              r#@branch-rate: Some(0.8),
+              r#@complexity: Some(1.1),
+              methods: Methods(
+                method: [
+                  Method(
+                    r#@name: "method1",
+                    r#@signature: "(I)V",
+                    r#@line-rate: Some(1.0),
+                    r#@branch-rate: Some(1.0),
+                    r#@complexity: Some(1.0),
+                    lines: Lines(
+                      line: [
+                        Line(
+                          r#@number: 10,
+                          r#@hits: Some(10),
+                          r#@branch: false,
+                        ),
+                        Line(
+                          r#@number: 15,
+                          r#@hits: Some(5),
+                          r#@branch: true,
+                          r#@condition-coverage: Some("50%"),
+                          conditions: Some(Conditions(
+                            condition: [
+                              Condition(
+                                r#@number: 0,
+                                r#@type: "jump",
+                                r#@coverage: "50%",
+                              ),
+                              Condition(
+                                r#@number: 1,
+                                r#@type: "switch",
+                                r#@coverage: "100%",
+                              ),
+                            ],
+                          )),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Method(
+                    r#@name: "method2",
+                    r#@signature: "(Ljava/lang/String;)V",
+                    r#@line-rate: Some(0.8),
+                    r#@branch-rate: Some(0.6),
+                    r#@complexity: Some(1.2),
+                    lines: Lines(
+                      line: [
+                        Line(
+                          r#@number: 20,
+                          r#@hits: Some(3),
+                          r#@branch: false,
+                        ),
+                        Line(
+                          r#@number: 25,
+                          r#@hits: Some(0),
+                          r#@branch: true,
+                          r#@condition-coverage: Some("0%"),
+                          conditions: Some(Conditions(
+                            condition: [
+                              Condition(
+                                r#@number: 0,
+                                r#@type: "jump",
+                                r#@coverage: "0%",
+                              ),
+                            ],
+                          )),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              lines: Lines(
+                line: [
+                  Line(
+                    r#@number: 10,
+                    r#@hits: Some(10),
+                    r#@branch: false,
+                  ),
+                  Line(
+                    r#@number: 15,
+                    r#@hits: Some(5),
+                    r#@branch: true,
+                    r#@condition-coverage: Some("50%"),
+                    conditions: Some(Conditions(
+                      condition: [
+                        Condition(
+                          r#@number: 0,
+                          r#@type: "jump",
+                          r#@coverage: "50%",
+                        ),
+                        Condition(
+                          r#@number: 1,
+                          r#@type: "switch",
+                          r#@coverage: "100%",
+                        ),
+                      ],
+                    )),
+                  ),
+                ],
+              ),
+            ),
+            Class(
+              r#@name: "MyClass2",
+              r#@filename: "com/example/mypackage1/MyClass2.java",
+              r#@line-rate: Some(0.8),
+              r#@branch-rate: Some(0.7),
+              r#@complexity: Some(1.3),
+              methods: Methods(
+                method: [
+                  Method(
+                    r#@name: "method1",
+                    r#@signature: "()V",
+                    r#@line-rate: Some(1.0),
+                    r#@branch-rate: Some(0.8),
+                    r#@complexity: Some(1.1),
+                    lines: Lines(
+                      line: [
+                        Line(
+                          r#@number: 30,
+                          r#@hits: Some(8),
+                          r#@branch: false,
+                        ),
+                        Line(
+                          r#@number: 35,
+                          r#@hits: Some(2),
+                          r#@branch: true,
+                          r#@condition-coverage: Some("66%"),
+                          conditions: Some(Conditions(
+                            condition: [
+                              Condition(
+                                r#@number: 0,
+                                r#@type: "jump",
+                                r#@coverage: "66%",
+                              ),
+                            ],
+                          )),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              lines: Lines(
+                line: [
+                  Line(
+                    r#@number: 30,
+                    r#@hits: Some(8),
+                    r#@branch: false,
+                  ),
+                  Line(
+                    r#@number: 35,
+                    r#@hits: Some(2),
+                    r#@branch: true,
+                    r#@condition-coverage: Some("66%"),
+                    conditions: Some(Conditions(
+                      condition: [
+                        Condition(
+                          r#@number: 0,
+                          r#@type: "jump",
+                          r#@coverage: "66%",
+                        ),
+                      ],
+                    )),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      Package(
+        r#@name: "com.example.mypackage2",
+        r#@line-rate: Some(0.85),
+        r#@branch-rate: Some(0.75),
+        r#@complexity: Some(1.4),
+        classes: Classes(
+          class: [
+            Class(
+              r#@name: "AnotherClass",
+              r#@filename: "com/example/mypackage2/AnotherClass.java",
+              r#@line-rate: Some(0.85),
+              r#@branch-rate: Some(0.75),
+              r#@complexity: Some(1.4),
+              methods: Methods(
+                method: [
+                  Method(
+                    r#@name: "anotherMethod",
+                    r#@signature: "()I",
+                    r#@line-rate: Some(1.0),
+                    r#@branch-rate: Some(1.0),
+                    r#@complexity: Some(1.0),
+                    lines: Lines(
+                      line: [
+                        Line(
+                          r#@number: 40,
+                          r#@hits: Some(10),
+                          r#@branch: false,
+                        ),
+                        Line(
+                          r#@number: 45,
+                          r#@hits: Some(7),
+                          r#@branch: true,
+                          r#@condition-coverage: Some("75%"),
+                          conditions: Some(Conditions(
+                            condition: [
+                              Condition(
+                                r#@number: 0,
+                                r#@type: "jump",
+                                r#@coverage: "75%",
+                              ),
+                            ],
+                          )),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              lines: Lines(
+                line: [
+                  Line(
+                    r#@number: 40,
+                    r#@hits: Some(10),
+                    r#@branch: false,
+                  ),
+                  Line(
+                    r#@number: 45,
+                    r#@hits: Some(7),
+                    r#@branch: true,
+                    r#@condition-coverage: Some("75%"),
+                    conditions: Some(Conditions(
+                      condition: [
+                        Condition(
+                          r#@number: 0,
+                          r#@type: "jump",
+                          r#@coverage: "75%",
+                        ),
+                      ],
+                    )),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  ),
+)
