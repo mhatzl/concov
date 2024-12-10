@@ -40,7 +40,7 @@ pub struct ConversionConfig {
     pub out_data_fmt: DataFormat,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum DataFormat {
     Json,
     Xml,

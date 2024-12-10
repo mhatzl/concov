@@ -47,6 +47,7 @@ impl std::fmt::Display for Coverage {
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Sources {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub source: Vec<String>,
 }
 
@@ -66,6 +67,7 @@ impl std::ops::DerefMut for Sources {
 
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 pub struct Packages {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub package: Vec<Package>,
 }
 
@@ -98,6 +100,7 @@ pub struct Package {
 
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 pub struct Classes {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub class: Vec<Class>,
 }
 
@@ -133,6 +136,7 @@ pub struct Class {
 
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 pub struct Methods {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub method: Vec<Method>,
 }
 
@@ -167,6 +171,7 @@ pub struct Method {
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Lines {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub line: Vec<Line>,
 }
 
@@ -203,6 +208,7 @@ pub struct Line {
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Conditions {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub condition: Vec<Condition>,
 }
 

@@ -60,6 +60,7 @@ impl From<super::schema::Coverage> for Coverage {
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Sources {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub source: Vec<String>,
 }
 
@@ -87,6 +88,7 @@ impl std::ops::DerefMut for Sources {
 
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 pub struct Packages {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub package: Vec<Package>,
 }
 
@@ -137,6 +139,7 @@ impl From<super::schema::Package> for Package {
 
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 pub struct Classes {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub class: Vec<Class>,
 }
 
@@ -191,6 +194,7 @@ impl From<super::schema::Class> for Class {
 
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 pub struct Methods {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub method: Vec<Method>,
 }
 
@@ -243,6 +247,7 @@ impl From<super::schema::Method> for Method {
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Lines {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub line: Vec<Line>,
 }
 
@@ -294,6 +299,7 @@ impl From<super::schema::Line> for Line {
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Conditions {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub condition: Vec<Condition>,
 }
 

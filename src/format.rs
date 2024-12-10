@@ -1,4 +1,6 @@
-#[derive(Debug, Clone, PartialEq, Eq, clap::ValueEnum)]
+#[derive(
+    Debug, Clone, Copy, PartialEq, Eq, clap::ValueEnum, serde::Serialize, serde::Deserialize,
+)]
 pub enum CoverageFormat {
     /// Cobertura v4 XML coverage format.
     ///
